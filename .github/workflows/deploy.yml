@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check commit message
+        id: check_msg
+        run: |
+          echo "commit_msg<<EOF" >> $GITHUB_OUTPUT
+          echo "$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Skip if commit message contains [skip-ci]
+        if: contains(steps.check_msg.outputs.commit_msg, '[skip-ci]')
+        run: exit 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build and Export
+        run: |
+          bun run build
+
+      - name: Configure git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push docs
+        run: |
+          git add docs
+          git commit -m "[skip-ci] Update docs from GitHub Actions" || echo "No changes to commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
