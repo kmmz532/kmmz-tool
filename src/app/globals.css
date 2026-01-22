@@ -7,6 +7,7 @@
   --link-hover: #1a73e8;
 
   --card: #ffffff;
+  --card2: #f6f6f6;
   --sub: #555;
   --accent: #0a63d8;
   --border: #e3e3e3;
@@ -36,6 +37,7 @@ html.dark {
   --link-hover: #8ab4f8;
 
   --card: #252525;
+  --card2: #1f1f1f;
   --sub: #ccc;
   --accent: #7aa4e8;
   --border: #3a3a3a;
@@ -206,6 +208,40 @@ nav ul li a:hover {
 }
 
 input[type="submit"] {
+  margin-right: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table td,
+table th {
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  min-width: 80px;
+}
+
+table tr {
+  background-color: var(--card);
+}
+
+table tr:nth-child(even) {
+  background-color: var(--card2);
+}
+
+table tr:last-child {
+  border-bottom: 2px solid var(--border);
+}
+
+table th {
+  text-align: left;
+  background-color: var(--background);
+}
+
+input[type="checkbox"] {
   margin-right: 4px;
 }
 
