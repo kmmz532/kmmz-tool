@@ -17,6 +17,7 @@ export default function Top() {
           <ul>
             <li><a href="/md5">MD5算出ツール</a></li>
             <li><a href="/sha256">SHA256算出ツール</a></li>
+            <li><a href="/text-count">文字数カウントツール</a></li>
           </ul>
 
           <ul>
