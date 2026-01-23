@@ -4,11 +4,17 @@ import { useState } from "react";
 import styles from "../page.module.css";
 
 export default function ToolTextCount() {
+  const [includeLineBreak, setIncludeLineBreak] = useState(false);
+  const [includeSpace, setIncludeSpace] = useState(false);
   const [text, setText] = useState("");
 
-  const charCount = [...text].length;
-  const stringLength = text.length;
-  const byteCount = new Blob([text]).size;
+  const fixedText = text
+    .replace(/\r?\n/g, includeLineBreak ? "\n" : "")
+    .replace(/ /g, includeSpace ? " " : "");
+
+  const charCount = [...fixedText].length;
+  const stringLength = fixedText.length;
+  const byteCount = new Blob([fixedText]).size;
 
   return (
     <div className={styles.page}>
@@ -23,6 +29,17 @@ export default function ToolTextCount() {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+          <br />
+          <input type="checkbox" id="includeLineBreak" checked={includeLineBreak} onChange={(e) => {
+            setIncludeLineBreak((e.target as HTMLInputElement).checked);
+          }} />
+          <label htmlFor="includeLineBreak">改行を数える</label>
+          <br />
+          <input type="checkbox" id="includeSpace" checked={includeSpace} onChange={(e) => {
+            setIncludeSpace((e.target as HTMLInputElement).checked);
+          }} />
+          <label htmlFor="includeSpace">スペースを数える</label>
+          <br /><br />
 
           <p>文字数: <span style={{ color: "var(--link)" }}>{charCount}</span></p>
           <p>文字列長: {stringLength}</p>
