@@ -33,7 +33,7 @@ export default function ToolMediaDevices() {
     }
 
     fetchDevices();
-  });
+  }, []);
 
   function kindToLabel(kind: string) {
     switch (kind) {
