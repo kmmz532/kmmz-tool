@@ -1,0 +1,139 @@
+.wideMain {
+  max-width: 1400px;
+  padding: 120px 30px;
+}
+
+.container {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.input, .textarea, .select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-geist-mono);
+  padding: 0.35rem;
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.input:disabled, .textarea:disabled {
+  background-color: var(--card2);
+}
+
+.button {
+  padding: 0.35rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--text-primary);
+  color: var(--background);
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.button.secondary {
+  background-color: transparent;
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.button:hover {
+  background-color: var(--button-primary-hover);
+}
+
+.button.secondary:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.responseSection {
+  margin-top: 1.5rem;
+}
+
+.responseBox {
+  width: 100%;
+  min-height: 200px;
+  background-color: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: var(--font-geist-mono);
+  color: var(--text-primary);
+  position: relative;
+}
+
+.responseActions {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.apiManagement {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.apiSelect {
+  width: auto;
+  flex-grow: 1;
+}
+
+.apiInput {
+  width: auto;
+  flex-grow: 1;
+}
+
+.error {
+  color: #ff4d4d;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .wideMain {
+    padding: 40px 0px;
+  }
+  .grid {
+    display: block;
+  }
+  .grid > div {
+    margin-bottom: 1rem;
+  }
+  .apiManagement {
+    flex-wrap: wrap;
+  }
+  .apiManagement .button, .apiManagement .select, .apiManagement .input {
+    margin-bottom: 0.5rem;
+  }
+}
