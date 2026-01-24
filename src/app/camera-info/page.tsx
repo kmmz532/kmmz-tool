@@ -13,8 +13,8 @@ type MediaDevice = {
 export default function ToolCameraInfo() {
   const [enableLog, setEnableLog] = useState(false);
   const [devices, setDevices] = useState<MediaDevice[]>([]);
-  const [viewDeviceId, setViewDeviceId] = useState(true);
-  const [viewGroupId, setViewGroupId] = useState(true);
+  const [viewDeviceId, setViewDeviceId] = useState(false);
+  const [viewGroupId, setViewGroupId] = useState(false);
   const [cameraInfo, setCameraInfo] = useState<Record<string, any>>({});
 
   function log(str: any) {
