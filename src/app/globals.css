@@ -245,6 +245,12 @@ input[type="checkbox"] {
   margin-right: 4px;
 }
 
+@media (max-width: 600px) {
+  table th {
+    min-width: 0;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

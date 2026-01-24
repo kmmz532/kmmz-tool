@@ -19,6 +19,7 @@ export default function Top() {
             <li><a href="/sha256">SHA256算出ツール</a></li>
             <li><a href="/text-count">文字数カウントツール</a></li>
             <li><a href="/media-devices">メディアデバイス情報表示ツール</a></li>
+            <li><a href="/camera-info">カメラ情報表示ツール</a></li>
             <li><a href="/curl">HTTPリクエスト送信ツール</a></li>
           </ul>
 

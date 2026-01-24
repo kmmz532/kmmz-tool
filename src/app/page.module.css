@@ -73,6 +73,6 @@ a.secondary {
 
 @media (max-width: 600px) {
   .main {
-    padding: 48px 24px;
+    padding: 48px 0px;
   }
 }
