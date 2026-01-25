@@ -215,6 +215,7 @@ export default function ToolMiningGame() {
                   const item = document.getElementById("shop-sell-item") as HTMLSelectElement;
                   const count = document.getElementById("shop-sell-count") as HTMLSelectElement;
                   if (hasItem(item.value)) {
+                    // TODO: 種類に応じて値段を変える
                     if (getCount(item.value) < parseInt(count.value)) {
                       setMsg("数が足りないため、売却できません。")
                     } else {
