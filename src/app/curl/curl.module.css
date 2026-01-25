@@ -25,21 +25,6 @@
 
 .input, .textarea, .select {
   width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background-color: var(--background);
-  color: var(--text-primary);
-  font-family: var(--font-geist-mono);
-  padding: 0.35rem;
-}
-
-.textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.input:disabled, .textarea:disabled {
-  background-color: var(--card2);
 }
 
 .button {
